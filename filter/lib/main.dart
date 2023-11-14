@@ -1,4 +1,7 @@
+import 'package:filter/ui/screens/filter/filter.dart';
+import 'package:filter/ui/screens/filter/filter_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +34,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: BlocProvider(
+        create: (context) => FilterCubit(),
+        child: FilterScreen(),
+      ),
     );
   }
 }
